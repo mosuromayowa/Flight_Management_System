@@ -13,7 +13,8 @@ public class Passenger {
 
     private boolean hasBooked;
 
-    public Passenger (int passportId, String firstName, String lastName, String age, String flightFare,boolean hasBooked) {
+    public Passenger (String passportId, String firstName, String lastName, int age,
+                      String flightFare, boolean hasBooked) {
         this.passportId = passportId;
         this.firstName = firstName;
         this.lastName = lastName;
