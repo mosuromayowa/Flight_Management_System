@@ -15,7 +15,7 @@ public class Flight extends Passenger {
     public Flight(String firstName, String lastName, int passportId, String age, String flightFare, boolean hasBooked,
                   String flightNumber, Date date, String source, String destination,
                   int maxPassengers, int currentCount) {
-        super(firstName, lastName, age, passportId, flightFare, hasBooked);
+        super(firstName, lastName, age, passportId, flightFare, false);
         this.flightNumber = flightNumber;
         this.date = date;
         this.source = source;
@@ -36,21 +36,40 @@ public class Flight extends Passenger {
 
     // To book a flight
     public void bookFlight(String firstName, String lastName, int passportId) {
-        System.out.println("Please provide your passport ID: ");
+
+            System.out.println("Please provide your passport ID: ");
+            Scanner keyboard = new Scanner(System.in);
+            passportId = keyboard.nextInt(getPassportId());
+
+            System.out.println("Please provide your first name: ");
+            firstName = keyboard.nextLine();
+
+            System.out.println("Please provide your last Name: ");
+            lastName = keyboard.nextLine();
+
+            System.out.println("The details of your flight for passport ID " +
+                    "" + passportId +
+                    "" + firstName +
+                    "," + lastName + " has been booked");
+
+        }
+
+
+    public void cancelFlight(int passportId) {
+        System.out.println("Please provide your passport ID:");
         Scanner keyboard = new Scanner(System.in);
-        passportId = keyboard.nextInt(getPassportId());
+        passportId = keyboard.nextInt();
 
-        System.out.println("Please provide your first name: ");
-        firstName = keyboard.nextLine();
+        if (passportId == getPassportId()) {
+            System.out.println("Your booking for :" + getFirstName() + " and " + getLastName() + " has been cancelled" );
+        }
+    }
 
-        System.out.println("Please provide your last Name: ");
-        lastName = keyboard.nextLine();
-
-        System.out.println("The details of your flight for passport ID " +
-                "" + passportId +
-                "" + firstName +
-                "," + lastName + " has been booked");
-
+    public void displayAllPassengers(ArrayList<Passenger> passengers){
+        System.out.println("Flight Passenger Information: ");
+        for (Passenger passenger: passengers) {
+            System.out.println("Passenger:" + passenger.getFirstName() + passenger.getLastName());
+        }
 
     }
 }
