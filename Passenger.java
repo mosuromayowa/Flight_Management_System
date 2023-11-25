@@ -7,13 +7,13 @@ public class Passenger {
 
     private String lastName;
 
-    private String age;
+    private int age;
 
     private String flightFare;
 
     private boolean hasBooked;
 
-    public Passenger (String passportId, String firstName, String lastName, int age,
+    public Passenger (int passportId, String firstName, String lastName, int age,
                       String flightFare, boolean hasBooked) {
         this.passportId = passportId;
         this.firstName = firstName;
@@ -23,14 +23,7 @@ public class Passenger {
         this.hasBooked = false;
     }
 
-    /**
-     * • Methods:
-     * • Constructor to initialize all the attributes.
-     * • bookFlight(): set hasBooked to true.
-     * • cancelFlight(): set the hasBooked to false.
-     * • displayInfo(): Prints the details of the passenger.
-     * • toString() : return a string representation of the object.
-     */
+
     public void setHasBooked(boolean hasBooked) {
         this.hasBooked = hasBooked;
     }
@@ -47,7 +40,7 @@ public class Passenger {
         return lastName;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -88,4 +81,6 @@ public class Passenger {
                 + ", Passport ID= " + getPassportId()
                 + ", Flight fare=" + getFlightFare();
     }
+
 }
+
